@@ -5,8 +5,8 @@ public class LevelLifetimeScope : LifetimeScope
 {
     protected override void Configure(IContainerBuilder builder)
     {
-        builder.Register<PlayerInputController>(Lifetime.Scoped).AsSelf().AsImplementedInterfaces();
+        builder.RegisterEntryPoint<PlayerInputController>(Lifetime.Scoped).AsSelf();
 
-        builder.RegisterComponentInHierarchy<PlayerMovement>();
+        builder.RegisterComponentInHierarchy<PlayerController>();
     }
 }
